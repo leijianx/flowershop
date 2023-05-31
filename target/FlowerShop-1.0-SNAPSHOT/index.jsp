@@ -53,10 +53,10 @@
 
 <div class="total">
   <ul id="banner">
-    <li><img src="./img/1.jpeg"></li>
-    <li><img src="src/main/web/img/2.jpeg"></li>
-    <li><img src="src/main/web/img/3.jpeg"></li>
-    <li><img src="./img/4.jpeg"></li>
+    <li><img src="img/1.jpeg"></li>
+    <li><img src="img/2.jpeg"></li>
+    <li><img src="img/3.jpeg"></li>
+    <li><img src="img/4.jpeg"></li>
   </ul>
 </div>
 
