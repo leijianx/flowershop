@@ -53,10 +53,10 @@
 
 <div class="total">
   <ul id="banner">
-    <li><img src="img/1.jpeg"></li>
-    <li><img src="img/2.jpeg"></li>
-    <li><img src="img/3.jpeg"></li>
-    <li><img src="img/4.jpeg"></li>
+    <li><img src="./img/1.jpeg"></li>
+    <li><img src="src/main/web/img/2.jpeg"></li>
+    <li><img src="src/main/web/img/3.jpeg"></li>
+    <li><img src="./img/4.jpeg"></li>
   </ul>
 </div>
 
@@ -65,7 +65,7 @@
   Class.forName("com.mysql.cj.jdbc.Driver");
 
   //2:获取链接
-  String URL = "jdbc:mysql://localhost:3306/flowershop";
+  String URL = "jdbc:mysql://localhost:3306/cookie";
   String Username = "root";
   String Password = "159357sc";
   //返回得到是一个connection对象

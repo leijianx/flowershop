@@ -28,11 +28,9 @@
 </form>
 
 <h2>获取所有用户`</h2>
-<form id="updateUserForm" method="get" action="">
+<form id="one" method="get" action="">
   <input type="submit" value="获取">
 </form>
-
-
 <%--连接数据库,获取所有user表数据,并把数据存到集合中--%>
 <%
   //1:注册驱动
@@ -66,6 +64,7 @@
   }
 
   System.out.println(users);
+  String StrPassWord = "*********";
   //释放资源
   resultSet.close();
   preparedStatement.close();
@@ -83,9 +82,23 @@
   <tr>
     <td><%= u.getId() %></td>
     <td><%= u.getName() %></td>
-    <td><%= u.getPassword() %></td>
+    <td><%= StrPassWord%></td>
   </tr>
   <% } %>
 </table>
+
+<script>
+  var p1 = document.getElementById('one')
+  var p2 = document.getElementById('userListTable')
+  console.log(p1);
+  console.log(p2)
+  p1.onmouseover = function(){
+    p2.style.visibility = "visible"
+  }
+  p1.onmouseout = function(){
+    p2.style.visibility = "hidden"
+  }
+
+</script>
 </body>
 </html>
