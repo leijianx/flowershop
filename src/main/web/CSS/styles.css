@@ -46,6 +46,6 @@ form input[type="submit"] {
   color: #fff;
   cursor: pointer;
 }
-#userListTable:hover {
-
+#userListTable {
+  visibility: hidden;
 }

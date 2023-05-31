@@ -65,9 +65,9 @@
   Class.forName("com.mysql.cj.jdbc.Driver");
 
   //2:获取链接
-  String URL = "jdbc:mysql://127.0.0.1:3306/shop";
+  String URL = "jdbc:mysql://localhost:3306/flowershop";
   String Username = "root";
-  String Password = "Sakura";
+  String Password = "159357sc";
   //返回得到是一个connection对象
   Connection conn = DriverManager.getConnection(URL,Username, Password);
 
