@@ -1,0 +1,31 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.total {
+  height: 850px;
+  width: 655px;
+  overflow: hidden;
+  margin: 100px auto;
+}
+
+#banner {
+  height: 250px;
+  width: 2620px;
+
+}
+
+.total li {
+  float: left;
+  width: 655px;
+  height: 850px;
+  list-style: none;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
+

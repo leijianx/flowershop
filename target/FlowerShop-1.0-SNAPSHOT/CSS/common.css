@@ -1,0 +1,37 @@
+/* 版心 */
+.w {
+  width: 1200px;
+  margin: 0px auto;
+}
+
+/* 以后单个盒子左浮动用这个类 */
+.fl {
+  float: left;
+}
+
+/* 以后单个盒子右浮动用这个类 */
+.fr {
+  float: right;
+}
+
+.fr ul li:nth-child(2n+1) {
+  margin: 0px 10px;
+}
+
+/* 快捷导航栏 */
+.shortcut {
+  height: 31px;
+  background-color: #f1f1f1;
+  line-height: 31px;
+}
+
+.shortcut ul li {
+  float: left;
+  font-size: 20px;
+}
+
+
+
+
+
+
