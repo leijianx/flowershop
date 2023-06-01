@@ -35,9 +35,6 @@ public class Servlet_login extends HttpServlet {
             session.setAttribute("name", name);
             System.out.println("logs:用户"+name+"登录成功");
             response.getWriter().write("登录成功！2秒后跳到主界面…");
-            //设置3秒钟跳转
-
-            //存储数据到Session中
 
             response.setHeader("refresh", "1;url=index.jsp");
 
