@@ -1,5 +1,7 @@
 package org.example;
 
+import org.omg.CORBA.PUBLIC_MEMBER;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -7,23 +9,27 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class Utils {
-    public static boolean Register(String name , int password) throws Exception {
-        //1:注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        //2:获取链接
-        String URL = "jdbc:mysql://localhost:3306/cookie";
-        String Username = "root";
-        String Password = "159357sc";
-        //返回得到是一个connection对象
-        Connection conn = DriverManager.getConnection(URL,Username, Password);
 
-        //3:定义sql语句
+    //1:将获取数据库连接对象的方法封装起来
+    public static Connection GetConnection() throws Exception {
+        //注册驱动
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        //获取链接
+        String URL = "jdbc:mysql://127.0.0.1:3306/shop";
+        String Username = "root";
+        String Password = "Sakura";
+        //返回得到是一个connection对象
+        return DriverManager.getConnection(URL,Username, Password);
+    }
+
+    public static boolean Register(String name , int password) throws Exception {
+        //定义sql语句
         String sql = "INSERT INTO user(name, password) VALUES (?,?)";
 
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
 
-        //4:设置参数
+        //设置参数
         preparedStatement.setString(1,name);
         preparedStatement.setInt(2,password);
 
@@ -31,7 +37,7 @@ public class Utils {
 
         //释放资源
         preparedStatement.close();
-        conn.close();
+        GetConnection().close();
 
         if (i >0){
             return true;
@@ -41,18 +47,10 @@ public class Utils {
     }
 
     public  static boolean login(String name , int password) throws Exception {
-        //1:注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        //2:获取链接
-        String URL = "jdbc:mysql://localhost:3306/cookie";
-        String Username = "root";
-        String Password = "159357sc";
-        //返回得到是一个connection对象
-        Connection conn = DriverManager.getConnection(URL,Username, Password);
 
         String sql = "select * from user where name=? and password=? ";
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
         preparedStatement.setString(1,name);
         preparedStatement.setInt(2,password);
 
@@ -80,18 +78,10 @@ public class Utils {
     }
 
     public  static boolean adminlogin(String name , int password) throws Exception {
-        //1:注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        //2:获取链接
-        String URL = "jdbc:mysql://localhost:3306/cookie";
-        String Username = "root";
-        String Password = "159357sc";
-        //返回得到是一个connection对象
-        Connection conn = DriverManager.getConnection(URL,Username, Password);
 
         String sql = "select * from admin where name=? and password=? ";
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
         preparedStatement.setString(1,name);
         preparedStatement.setInt(2,password);
 
@@ -120,18 +110,10 @@ public class Utils {
 
     //查询所有用户
     public  static boolean SelectAll(String name , int password) throws Exception {
-        //1:注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        //2:获取链接
-        String URL = "jdbc:mysql://localhost:3306/cookie";
-        String Username = "root";
-        String Password = "159357sc";
-        //返回得到是一个connection对象
-        Connection conn = DriverManager.getConnection(URL,Username, Password);
 
         String sql = "select * from user ";
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
 
 
         ResultSet resultSet = preparedStatement.executeQuery();
@@ -152,20 +134,13 @@ public class Utils {
 
     }
 
-    //删除指定id的用户
+
+    //DeleteUser:删除指定id的用户
     public  static int DeleteUser(int id) throws Exception {
-        //1:注册驱动
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        //2:获取链接
-        String URL = "jdbc:mysql://localhost:3306/cookie";
-        String Username = "root";
-        String Password = "159357sc";
-        //返回得到是一个connection对象
-        Connection conn = DriverManager.getConnection(URL,Username, Password);
 
         String sql = " delete from user where id = ?";
 
-        PreparedStatement preparedStatement = conn.prepareStatement(sql);
+        PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
         preparedStatement.setInt(1,id);
 
         int i = preparedStatement.executeUpdate();
@@ -176,6 +151,4 @@ public class Utils {
         }else
             return 0;
     }
-
-
 }

@@ -68,3 +68,62 @@ body {
 .clearfix {
     *zoom: 1
 }
+
+
+/*商品列表*/
+
+.guess_like {
+    height: 281px;
+    font-size: 18px;
+}
+
+.guess_thing {
+    height: 265px;
+    border: 1px solid black;
+    padding-left: 20px;
+}
+.guess_thing img{
+    text-align: center;
+    height: 170px;
+    width:116px;
+}
+
+.guess_thing ul li{
+    height: 233px;
+    width: 16.6%;
+    float: left;
+    padding-left: 35px;
+    padding-top: 10px;
+    padding-right: 25px;
+}
+
+.guess_font {
+    padding: 0px 15px;
+    font-size: 15px;
+    text-align: center;
+    color: black;
+
+}
+
+.price {
+    font-size: 16px;
+}
+
+/* 设置表单输入框和按钮的样式 */
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="submit"] {
+    padding: 6px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+input[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    cursor: pointer;
+}
+
+
+
