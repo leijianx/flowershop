@@ -15,7 +15,6 @@ import static org.example.Utils.login;
 public class Servlet_login extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("login");
         String name = request.getParameter("username");
         int password = Integer.parseInt(request.getParameter("password"));
 
@@ -40,13 +39,15 @@ public class Servlet_login extends HttpServlet {
 
             //存储数据到Session中
 
-            response.setHeader("refresh", "2;url=index.jsp");
+            response.setHeader("refresh", "1;url=index.jsp");
 
         }else {
-            System.out.println("logs:用户"+name+"登录成功");
-            response.getWriter().write("登录失败！2秒后请重新登录…");
-            //设置3秒钟跳转
-            response.setHeader("refresh", "2;url=login.jsp");
+            System.out.println("logs:用户"+name+"登录失败,数据库没有该用户");
+
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().print("<script language='javascript'>" +
+                    "alert('您输入的账号或密码错误，请重新输入！');" +
+                    "window.location.href='login.jsp';</script>')");
         }
     }
 

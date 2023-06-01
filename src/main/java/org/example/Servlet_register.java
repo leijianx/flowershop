@@ -17,9 +17,6 @@ public class Servlet_register extends HttpServlet {
         String name = request.getParameter("username");
         int password = Integer.parseInt(request.getParameter("password"));
 
-        System.out.println(name);
-        System.out.println(password);
-
         boolean isflag = false;
 
         try {
@@ -31,16 +28,17 @@ public class Servlet_register extends HttpServlet {
         response.setContentType("text/html;charset=utf-8");
         PrintWriter writer = response.getWriter();
         if (isflag){
-            System.out.println("用户"+name+"注册成功");
+            System.out.println("logs:用户"+name+"注册成功");
             response.getWriter().write("注册成功！2秒钟跳到登录页面…");
             //设置3秒钟跳转
             response.setHeader("refresh", "3;url=login.jsp");
         }else {
-            System.out.println("用户"+name+"注册失败");
-            response.getWriter().write("注册成功！即将重新注册…");
-            //设置3秒钟跳转
-            response.setHeader("refresh", "2;url=register.jsp");
+            System.out.println("logs:用户"+name+"注册失败");
 
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().print("<script language='javascript'>" +
+                    "alert('注册失败 , 请重新注册);" +
+                    "window.location.href='register.jsp';</script>')");
         }
     }
 

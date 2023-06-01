@@ -61,5 +61,12 @@
     </tr>
     <% } %>
 </table>
+
+<h2>删除购物车商品</h2>
+<form id="deleteUserForm" method="get" action="">
+    <label for="userId">商品ID:</label>
+    <input id="userId" name="userId" type="text"><br>
+    <input type="submit" value="删除">
+</form>
 </body>
 </html>
