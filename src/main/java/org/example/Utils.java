@@ -15,9 +15,9 @@ public class Utils {
         //注册驱动
         Class.forName("com.mysql.cj.jdbc.Driver");
         //获取链接
-        String URL = "jdbc:mysql://127.0.0.1:3306/shop";
+        String URL = "jdbc:mysql://127.0.0.1:3306/cookie";
         String Username = "root";
-        String Password = "Sakura";
+        String Password = "123";
         //返回得到是一个connection对象
         return DriverManager.getConnection(URL,Username, Password);
     }
