@@ -3,7 +3,9 @@
 <%@ page import="java.sql.DriverManager" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="static org.example.Utils.GetConnection" %>
+<%--
   Created by IntelliJ IDEA.
   User: 18084
   Date: 2023/5/30
@@ -33,20 +35,10 @@
 </form>
 <%--连接数据库,获取所有user表数据,并把数据存到集合中--%>
 <%
-  //1:注册驱动
-  Class.forName("com.mysql.cj.jdbc.Driver");
-
-  //2:获取链接
-  String URL = "jdbc:mysql://localhost:3306/cookie";
-  String Username = "root";
-  String Password = "159357sc";
-  //返回得到是一个connection对象
-  Connection conn = DriverManager.getConnection(URL,Username, Password);
-
-  //3:定义sql语句
+  //定义sql语句
   String sql = "select * from user";
 
-  PreparedStatement preparedStatement = conn.prepareStatement(sql);
+  PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
 
   ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -68,7 +60,7 @@
   //释放资源
   resultSet.close();
   preparedStatement.close();
-  conn.close();
+  GetConnection().close();
 %>
 
 <h2>所有用户列表</h2>
@@ -98,7 +90,6 @@
   p1.onmouseout = function(){
     p2.style.visibility = "hidden"
   }
-
 </script>
 </body>
 </html>

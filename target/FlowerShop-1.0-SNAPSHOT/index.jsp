@@ -3,18 +3,22 @@
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="org.example.User" %>
-<%@ page import="java.util.ArrayList" %><%--
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="static org.example.Utils.GetConnection" %>
+
+<%--
   Created by IntelliJ IDEA.
   User: 18084
   Date: 2023/5/29
   Time: 23:46
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page isELIgnored="false" contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,8 +31,6 @@
   <link rel="stylesheet" href="CSS/common.css">
   <link rel="stylesheet" href="CSS/form.css">
 
-
-
 </head>
 
 <body>
@@ -40,12 +42,21 @@
       <ul>
         <li><a href="adminlogin.jsp">鲜花商城</a>&nbsp; 欢迎你！</li>
         <li>
-          请
-          <a href="login.jsp">登录&nbsp;</a>
-          或者
-          <a href="register.jsp" class="red_color">注册</a>
+          请<a href="login.jsp">登录&nbsp;</a>或者<a href="register.jsp" class="red_color">注册</a>
+
           <br>
         </li>
+      </ul>
+    </div>
+    <div class="fr">
+      <ul>
+        <%
+          //1.获取Session对象
+          HttpSession session1 = request.getSession();
+          //2.获取数据
+          Object name1 = session.getAttribute("name");
+        %>
+        <li>用户:&nbsp;<a href="ShopCar.jsp"><%= name1 %></a></li>
       </ul>
     </div>
   </div>
@@ -61,20 +72,12 @@
 </div>
 
 <%
-  //1:注册驱动
-  Class.forName("com.mysql.cj.jdbc.Driver");
 
-  //2:获取链接
-  String URL = "jdbc:mysql://localhost:3306/cookie";
-  String Username = "root";
-  String Password = "159357sc";
-  //返回得到是一个connection对象
-  Connection conn = DriverManager.getConnection(URL,Username, Password);
 
   //3:定义sql语句
   String sql = "select * from user";
 
-  PreparedStatement preparedStatement = conn.prepareStatement(sql);
+  PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
 
   ResultSet resultSet = preparedStatement.executeQuery();
 
@@ -89,15 +92,13 @@
     user = new User(id,name,password);
 
     users.add(user);
-
-
   }
 
   System.out.println(users);
   //释放资源
   resultSet.close();
   preparedStatement.close();
-  conn.close();
+  GetConnection().close();
 
 %>
 
@@ -128,6 +129,77 @@
   }
 </script>
 
+
+<!-- 商品列表 -->
+<div class="guess_like w">
+  <h3>商品列表</h3>
+  <div class="guess_thing">
+    <ul>
+      <li>
+        <img src="img/1.jpeg" alt="">
+        <div class="guess_font">
+          <div>花1</div>
+          <div class="price">￥10.00</div>
+          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+            <input type="submit" value="加入购物车">
+          </form>
+
+        </div>
+      </li>
+      <li>
+        <img src="img/2.jpeg" alt="">
+        <div class="guess_font">
+          <div>花2</div>
+          <div class="price">￥20.00</div>
+          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+            <input type="submit" value="加入购物车">
+          </form>
+        </div>
+      </li>
+      <li>
+        <img src="img/3.jpeg" alt="">
+        <div class="guess_font">
+          <div>花3</div>
+          <div class="price">￥30.00</div>
+          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+            <input type="submit" value="加入购物车">
+          </form>
+        </div>
+      </li>
+      <li>
+        <img src="img/4.jpeg" alt="">
+        <div class="guess_font">
+          <div>花4</div>
+          <div class="price">￥40.00</div>
+          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+            <input type="submit" value="加入购物车">
+          </form>
+        </div>
+      </li>
+      <li>
+        <img src="img/5.jpeg" alt="">
+        <div class="guess_font">
+          <div>花5</div>
+          <div class="price">￥50.00</div>
+          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+            <input type="submit" value="加入购物车">
+          </form>
+        </div>
+      </li>
+      <li>
+        <img src="img/6.jpg" alt="">
+        <div class="guess_font">
+          <div>花6</div>
+          <div class="price">￥60.00</div>
+          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+            <input type="submit" value="加入购物车">
+          </form>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</div>
 </body>
 
 </html>

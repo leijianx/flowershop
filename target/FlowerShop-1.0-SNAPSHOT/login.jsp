@@ -14,9 +14,6 @@
     <title>login</title>
     <link href="CSS/login.css" rel="stylesheet">
 </head>
-
-
-
 <body>
 <div id="loginDiv" style="height: 350px">
     <form action="/FlowerShop_war_exploded/login" id="form" method="get">
@@ -27,10 +24,8 @@
             <input type="submit" class="button" value="login up">
             <input type="reset" class="button" value="reset">&nbsp;&nbsp;&nbsp;
             <a href="register.jsp">没有账号？</a>
-
         </div>
     </form>
 </div>
-
 </body>
 </html>
