@@ -26,7 +26,6 @@
         <div id="subDiv">
             <input type="submit" class="button" value="login up">
             <input type="reset" class="button" value="reset">&nbsp;&nbsp;&nbsp;
-            <a href="register.jsp">没有账号？</a>
         </div>
     </form>
 </div>
