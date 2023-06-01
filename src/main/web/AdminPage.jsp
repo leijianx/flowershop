@@ -29,7 +29,7 @@
   <input type="submit" value="删除">
 </form>
 
-<h2>获取所有用户`</h2>
+<h2>获取所有用户</h2>
 <form id="one" method="get" action="">
   <input type="submit" value="获取">
 </form>
@@ -54,8 +54,6 @@
 
     users.add(user);
   }
-
-  System.out.println(users);
   String StrPassWord = "*********";
   //释放资源
   resultSet.close();

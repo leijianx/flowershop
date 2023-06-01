@@ -69,10 +69,8 @@ public class Utils {
         }
 
         if (user !=null){
-            System.out.println("list不为空");
             return true;
         }else {
-            System.out.println("list为空");
             return false;
         }
     }
@@ -100,10 +98,8 @@ public class Utils {
         }
 
         if (admin !=null){
-            System.out.println("list不为空");
             return true;
         }else {
-            System.out.println("list为空");
             return false;
         }
     }
@@ -146,7 +142,23 @@ public class Utils {
         int i = preparedStatement.executeUpdate();
 
         if (i>0){
-            System.out.println("删除成功");
+            return 1;
+        }else
+            return 0;
+    }
+    //添加商品到购物车
+    public  static int InsertShopCar(String name,int price) throws Exception {
+
+        String sql = " insert into 孙智洁_shopcar(name, price) values ( ? , ? );";
+
+        PreparedStatement preparedStatement = GetConnection().prepareStatement(sql);
+        preparedStatement.setString(1,name);
+        preparedStatement.setInt(2,price);
+
+
+        int i = preparedStatement.executeUpdate();
+
+        if (i>0){
             return 1;
         }else
             return 0;

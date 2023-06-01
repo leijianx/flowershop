@@ -14,7 +14,6 @@ import static org.example.Utils.adminlogin;
 public class Servlet_adminlogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("管理员登录");
         String name = request.getParameter("username");
         int password = Integer.parseInt(request.getParameter("password"));
 
@@ -35,9 +34,10 @@ public class Servlet_adminlogin extends HttpServlet {
             response.setHeader("refresh", "2;url=AdminPage.jsp");
         }else {
             System.out.println("logs:管理员"+name+"登录失败");
-            response.getWriter().write("管理员登录失败！2秒后重新登录页面…");
-            //设置3秒钟跳转
-            response.setHeader("refresh", "2;url=adminlogin.jsp");
+            response.setContentType("text/html;charset=utf-8");
+            response.getWriter().print("<script language='javascript'>" +
+                    "alert('您输入的账号或密码错误，请重新输入！');" +
+                    "window.location.href='adminlogin.jsp';</script>')");
         }
     }
 

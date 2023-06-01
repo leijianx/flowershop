@@ -72,8 +72,6 @@
 </div>
 
 <%
-
-
   //3:定义sql语句
   String sql = "select * from user";
 
@@ -93,13 +91,10 @@
 
     users.add(user);
   }
-
-  System.out.println(users);
   //释放资源
   resultSet.close();
   preparedStatement.close();
   GetConnection().close();
-
 %>
 
 <script>
@@ -140,7 +135,7 @@
         <div class="guess_font">
           <div>花1</div>
           <div class="price">￥10.00</div>
-          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+          <form method="get" action="/FlowerShop_war_exploded/ShopCar">
             <input type="submit" value="加入购物车">
           </form>
 
@@ -151,7 +146,7 @@
         <div class="guess_font">
           <div>花2</div>
           <div class="price">￥20.00</div>
-          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+          <form method="get" action="/FlowerShop_war_exploded/ShopCar">
             <input type="submit" value="加入购物车">
           </form>
         </div>
@@ -161,7 +156,7 @@
         <div class="guess_font">
           <div>花3</div>
           <div class="price">￥30.00</div>
-          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+          <form method="get" action="/FlowerShop_war_exploded/ShopCar">
             <input type="submit" value="加入购物车">
           </form>
         </div>
@@ -171,7 +166,7 @@
         <div class="guess_font">
           <div>花4</div>
           <div class="price">￥40.00</div>
-          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+          <form method="get" action="/FlowerShop_war_exploded/ShopCar">
             <input type="submit" value="加入购物车">
           </form>
         </div>
@@ -181,7 +176,7 @@
         <div class="guess_font">
           <div>花5</div>
           <div class="price">￥50.00</div>
-          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+          <form method="get" action="/FlowerShop_war_exploded/ShopCar">
             <input type="submit" value="加入购物车">
           </form>
         </div>
@@ -191,7 +186,7 @@
         <div class="guess_font">
           <div>花6</div>
           <div class="price">￥60.00</div>
-          <form method="get" action="/FlowerShop_war_exploded/AdminDelete">
+          <form method="get" action="/FlowerShop_war_exploded/ShopCar">
             <input type="submit" value="加入购物车">
           </form>
         </div>
